@@ -4,4 +4,4 @@ from django.db import models
 # ID : email
 # PW
 # 업무
-# 
+# 다른
