@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} | Company</title>
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+<body class="container">
+    <div>
+        <nav>
+            <ul class="top-menu-group">
+                {% if request.user.is_authenticated %}
+                <span class="#">안녕하세요 {{ request.user.username }} 님
+                    <a href="{% url 'accounts:logout' %}"> 로그아웃</a>
+                </span>
+                {% else %}
+                <span class="#">Guest 모드 입니다.
+                    <a href="{% url 'accounts:login' %}"> 로그인</a>
+                    <a href="{% url 'accounts:signup' %}"> 회원가입</a>
+                </span>
+                {% endif %}
+                <!-- <a href="{#% url 'index' %#}">
+                    <img src="{#% static 'icons/account_circle_outlined_black_36dp.svg' %#}" alt="내 페이지">
+                </a> -->
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    {% block script %}{% endblock %}
+</body>
+
+</html>
