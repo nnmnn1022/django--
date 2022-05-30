@@ -8,8 +8,16 @@
     <li><a href="{% url 'support:faq_list' %}">FAQ</a></li>
 </ul> -->
 <main>
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
     <div class="card-list">
-        INDEX
+        <div class="card">
+            {% for todo in todo_list %}
+                {% include 'mixin/posts/post_card.html'%}
+            {% endfor %}
+        </div>
     </div>
 
 </main>

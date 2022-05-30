@@ -7,8 +7,9 @@ class UserSignupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
         exclude = []
-        fields = ['username',
+        fields = ['email',
                   'name',
                   'profile_image',
-                  'email',
+                  'gmail',
+                  'l10n'
                   ]

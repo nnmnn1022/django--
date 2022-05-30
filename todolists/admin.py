@@ -1,11 +1,12 @@
 from django.contrib import admin
-from todolists.models import ToDoListModel
+from todolists.models import ToDoList
 
-@admin.register(ToDoListModel)
+@admin.register(ToDoList)
 class todolistModelAdmin(admin.ModelAdmin):
-    list_display = ['checkbox',
-                    'content',
+    list_display = ['content',
+                    'checkbox',
                     'created_by',
+                    'deadline',
                     'created_at',
                     ]
 
