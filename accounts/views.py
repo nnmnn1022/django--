@@ -22,7 +22,7 @@ def signup_view(request):
                 # 회원가입 처리
                 instance = form.save()
                 # return redirect('index.html')
-                return HttpResponse('인덱스')
+                return redirect('accounts:login')
 
             else :
                 # 인덱스
@@ -41,7 +41,11 @@ def login_view(request):
     # GET, POST 분리
     if request.method == 'GET' :
         # 로그인 HTML 응답
-        return render(request, 'accounts/login.html', {'form' : AuthenticationForm()})
+        context = {
+            'message' : '밥게이트 페이지에 오신 것을 환영합니다.',
+            'form' : AuthenticationForm()
+        }
+        return render(request, 'accounts/login.html', context)
 
     else :
         form = AuthenticationForm(request, request.POST)
@@ -54,7 +58,7 @@ def login_view(request):
             # 비즈니스 로직 처리 - 로그인 실패
             # 응답
             context = {
-                'form' : form
+                'form' : form,
             }
             return render(request, 'accounts/login.html', context)
 
@@ -65,4 +69,4 @@ def logout_view(request) :
         logout(request)
     
     # 응답
-    return redirect('index.html')
+    return redirect('accounts:login')

@@ -17,7 +17,7 @@
         <nav>
             <div class="top-menu-group">
                 {% if request.user.is_authenticated %}
-                <span class="#">안녕하세요 {{ request.user.username }} 님
+                    <span class="#">안녕하세요 {{ request.user.name }} 님
                     <a href="{% url 'accounts:logout' %}"> 로그아웃</a>
                 </span>
                 {% else %}

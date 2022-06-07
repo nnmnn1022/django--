@@ -1,12 +1,12 @@
 from django.core.exceptions import ValidationError
 from django.forms import forms
-from todolists.models import ToDoListModel
+from todolists.models import ToDoList
 
 
 class ToDoListBaseForm(forms.ModelForm):
 
     class Meta:
-        model = ToDoListModel
+        model = ToDoList
         fields = '__all__'
 
 

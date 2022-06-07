@@ -13,6 +13,7 @@ class ToDoList(BaseModel):
                                    on_delete=models.CASCADE, verbose_name='작성자', blank=True)    # 작성자
     worker = models.ForeignKey(
         to=User, related_name='worker', on_delete=models.CASCADE, verbose_name='담당자')
+    character = models.BigIntegerField
     deadline = models.DateTimeField(verbose_name='기한',)
     # work_by =  다른 유저에게 할당하는 부분이 있어야 할 것으로 보임
     content_detail = models.TextField(verbose_name='세부내용')  # 세부 내용

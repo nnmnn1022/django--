@@ -16,6 +16,7 @@ main {
 
 a {
     color: #000000; 
+    margin : 15px;
 }
 
 a:link { text-decoration: none; text-shadow: 0 0 24px; } a:visited { text-decoration: none; text-shadow: 0 0 24px; }
@@ -43,6 +44,10 @@ li {
 
 .material-icons.md-48 {
     font-size: 48px;
+}
+
+p {
+    margin : 15px;
 }
 
 .right {
